@@ -3,7 +3,10 @@ import LoginView from '../login/LoginView.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: [{ path: '/login', name: 'login', component: LoginView }],
+  routes: [
+    { path: '/', redirect: '/login' },
+    { path: '/login', name: 'login', component: LoginView },
+  ],
 })
 
 export default router
