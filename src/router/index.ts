@@ -2,13 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import { defineComponent, h } from 'vue'
 import LoginView from '../login/LoginView.vue'
 import PagesView from '../pages/PagesView.vue'
-
-const HeroManageView = defineComponent({
-  name: 'HeroManageView',
-  setup() {
-    return () => h('div', { class: 'page-placeholder' }, '英雄管理页面占位')
-  },
-})
+import HeroManageView from '../pages/homeManage/HeroManageView.vue'
 
 const ExampleFormView = defineComponent({
   name: 'ExampleFormView',
