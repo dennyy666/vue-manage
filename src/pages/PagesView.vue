@@ -205,7 +205,7 @@ const loginOut = async () => {
     display: flex;
     flex-direction: column;
     flex: 1;
-
+    min-width: 0;
     header {
       height: 50px;
       background-color: #fff;
