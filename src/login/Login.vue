@@ -3,9 +3,7 @@
 </script>
 
 <template>
-    <p>
-        Login works!
-    </p>
+    <el-button type="primary">Primary</el-button>
 </template>
 
 <style scoped lang="less"></style>
