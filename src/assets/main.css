@@ -1,0 +1,31 @@
+/* ---------- 2. 全局重置 & 盒模型 ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 移除默认的列表样式 */
+ul,
+ol {
+    list-style: none;
+}
+
+/* 链接基础样式 */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* 图片、媒体默认块级，避免底部空白 */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
