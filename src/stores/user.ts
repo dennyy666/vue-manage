@@ -1,0 +1,34 @@
+import { ref } from 'vue'
+import { defineStore } from 'pinia'
+
+export const useUserStore = defineStore('user', () => {
+  const name = ref<string>('')
+  const avatar = ref<string>('')
+  const address = ref<string>('')
+  const phone = ref<string>('')
+
+  function setUser(payload: { name?: string; avatar?: string; address?: string; phone?: string }) {
+    if (payload.name !== undefined) name.value = payload.name
+    if (payload.avatar !== undefined) avatar.value = payload.avatar
+    if (payload.address !== undefined) address.value = payload.address
+    if (payload.phone !== undefined) phone.value = payload.phone
+  }
+
+  function clearUser() {
+    name.value = ''
+    avatar.value = ''
+    address.value = ''
+    phone.value = ''
+  }
+
+  return {
+    name,
+    avatar,
+    address,
+    phone,
+    setUser,
+    clearUser,
+  }
+}, {
+  persist: true,
+})
