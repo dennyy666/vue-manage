@@ -7,11 +7,11 @@
                 </el-icon>
             </span>
         </div>
-        <div class="right">
+        <div v-if="store.name" class="right">
             <el-dropdown trigger="hover">
                 <div class="user-menu">
-                    <img :src="avatarImg" alt="avatar" />
-                    <span>姬虚空</span>
+                    <img :src="avatarUrl" alt="avatar" />
+                    <span>{{ store.name }}</span>
                     <el-icon class="el-icon--right">
                         <arrow-down />
                     </el-icon>
@@ -27,10 +27,21 @@
     </header>
 </template>
 <script setup lang="ts">
+import { computed } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { openExternalLink } from '@/utils'
-import avatarImg from '@/assets/avatar1.png'
+import { useUserStore } from '@/stores/user'
+
+const store = useUserStore()
+
+const avatarUrl = computed(() => {
+    const map: Record<string, string> = {
+        'avatar1.png': new URL('@/assets/avatar1.png', import.meta.url).href,
+        'avatar2.png': new URL('@/assets/avatar2.png', import.meta.url).href,
+    }
+    return map[store.avatar] || ''
+})
 const router = useRouter()
 const openGithub = () => {
     openExternalLink('https://github.com/dennyy666/vue-manage', '_blank')

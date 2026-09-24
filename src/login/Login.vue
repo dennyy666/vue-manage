@@ -43,6 +43,7 @@ import { reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
 const router = useRouter()
 interface LoginForm {
     account: string
@@ -68,8 +69,8 @@ const rules: FormRules<LoginForm> = {
 }
 
 const userInfos: UserInfo[] = [
-    { name: '姬虚空', avatar: 'https://i.cetsteam.com/imgs/2026/05/08/38f2f5af2c44bbab.jpg', address: '地球', phone: '12345678901' },
-    { name: '酒剑仙', avatar: 'https://s41.ax1x.com/2026/05/07/pebOEv9.jpg', address: '天涯', phone: '19876543210' },
+    { name: '姬虚空', avatar: 'avatar1.png', address: '地球', phone: '12345678901' },
+    { name: '酒剑仙', avatar: 'avatar2.png', address: '天涯', phone: '19876543210' },
 ]
 
 const handleSubmit = async () => {
@@ -88,6 +89,7 @@ const performLogin = async (account: string, _password = '123456') => {
         ElMessage.warning('用户名或者密码错误')
         return
     }
+    useUserStore().setUser({ name: user.name, avatar: user.avatar, address: user.address, phone: user.phone })
     router.push('/layout')
     ElMessage.success('登录成功')
 }
