@@ -121,6 +121,7 @@ header {
             align-items: center;
             gap: 6px;
             cursor: pointer;
+            outline: none;
 
             img {
                 width: 36px;
