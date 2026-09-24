@@ -1,6 +1,6 @@
 <template>
     <div class="pags-contain">
-        <aside class="sidebar">
+        <aside class="sidebar" :class="{ collapsed: store.isCollapsed }">
             <Sidebar />
         </aside>
 
@@ -15,6 +15,9 @@
 import Sidebar from '@/layout/components/Sidebar.vue'
 import Breadcrumb from '@/layout/components/Breadcrumb.vue'
 import TagsView from './components/TagsView.vue';
+import { useUserStore } from '@/stores/user'
+
+const store = useUserStore()
 </script>
 <style scoped lang="less">
 .pags-contain {
@@ -26,7 +29,12 @@ import TagsView from './components/TagsView.vue';
         width: 220px;
         flex-shrink: 0;
         background-color: #001529;
-        overflow-y: hidden;
+        overflow: hidden;
+        transition: width 300ms ease-in-out;
+
+        &.collapsed {
+            width: 0;
+        }
     }
 
     .content-box {

@@ -2,8 +2,9 @@
     <header>
         <div class="left">
             <span>
-                <el-icon>
-                    <Fold />
+                <el-icon @click="store.toggleCollapse()">
+                    <Expand v-if="store.isCollapsed" />
+                    <Fold v-else />
                 </el-icon>
             </span>
         </div>
