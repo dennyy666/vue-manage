@@ -42,7 +42,8 @@
 import { reactive, ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
-
+import { useRouter } from 'vue-router'
+const router = useRouter()
 interface LoginForm {
     account: string
     password: string
@@ -87,6 +88,7 @@ const performLogin = async (account: string, _password = '123456') => {
         ElMessage.warning('用户名或者密码错误')
         return
     }
+    router.push('/layout')
     ElMessage.success('登录成功')
 }
 
