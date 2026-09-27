@@ -44,6 +44,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import { ElMessage } from 'element-plus'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
+import { http } from "@/utils/request";
 const router = useRouter()
 interface LoginForm {
     account: string
@@ -89,9 +90,19 @@ const performLogin = async (account: string, _password = '123456') => {
         ElMessage.warning('用户名或者密码错误')
         return
     }
-    useUserStore().setUser({ name: user.name, avatar: user.avatar, address: user.address, phone: user.phone })
-    router.push('/layout')
-    ElMessage.success('登录成功')
+
+    http.get('static/login.json', {
+        name: 'denny',
+        password: 123456
+    }).then(response => {
+        console.log('登录响应:', response)
+        useUserStore().setUser({ name: user.name, avatar: user.avatar, address: user.address, phone: user.phone })
+        router.push('/layout')
+        ElMessage.success(`登录成功，欢迎 ${user.name}！`)
+    }).catch(error => {
+        ElMessage.error('登录失败，请检查网络或服务器')
+    })
+
 }
 
 const copy = async (account: string) => {
