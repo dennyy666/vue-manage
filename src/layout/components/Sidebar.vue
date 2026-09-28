@@ -4,11 +4,11 @@
     <span>Vue3 admin</span>
   </div>
   <div class="line"></div>
-  <el-menu active-text-color="#ffd04b" background-color="#001529" text-color="#fff" :default-active="activeUrl"
+  <el-menu active-text-color="#ffd04b" background-color="#001529" text-color="#fff" router :default-active="$route.path"
     :unique-opened="true" style="border-right: none;">
     <el-sub-menu index="1">
       <template #title>首页配置</template>
-      <el-menu-item index="1-1">英雄管理</el-menu-item>
+      <el-menu-item index="/layout/homeConfiguration/heroManage">英雄管理</el-menu-item>
       <el-menu-item index="1-2">英雄管理</el-menu-item>
       <el-menu-item index="1-3" @click="baidu">百度一下啦</el-menu-item>
       <el-menu-item index="1-4" @click="jumpNotFound">404 页面</el-menu-item>
@@ -22,14 +22,11 @@
   </el-menu>
 </template>
 <script setup lang="ts">
-import { computed } from 'vue'
 import { openExternalLink } from '@/utils'
 import logoImg from '@/assets/mlogo.png'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const route = useRoute()
-const activeUrl = computed(() => route.path)
 const baidu = () => {
   openExternalLink('https://www.baidu.com', '_blank')
 }

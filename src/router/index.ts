@@ -16,6 +16,13 @@ const router = createRouter({
       path: '/layout',
       name: 'layout',
       component: () => import('../layout/MainLayout.vue'),
+      children: [
+        {
+          path: 'homeConfiguration/heroManage',
+          name: 'heroManage',
+          component: () => import('../views/homeConfiguration/heroManage/HeroManageView.vue'),
+        },
+      ],      
     } 
   ],
 })
