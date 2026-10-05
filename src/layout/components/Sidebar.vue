@@ -15,7 +15,7 @@
     </el-sub-menu>
     <el-sub-menu index="2">
       <template #title>表单管理</template>
-      <el-menu-item index="2">实名认证流程</el-menu-item>
+      <el-menu-item index="/layout/formManage/realNameCertification">实名认证流程</el-menu-item>
     </el-sub-menu>
     <el-menu-item index="3">svg-图标</el-menu-item>
     <el-menu-item index="4" @click="openGithub">项目地址</el-menu-item>

@@ -22,6 +22,11 @@ const router = createRouter({
           name: 'heroManage',
           component: () => import('../views/homeConfiguration/heroManage/HeroManageView.vue'),
         },
+        {
+          path: 'formManage/realNameCertification',
+          name: 'realNameCertification',
+          component: () => import('../views/formManage/realNameCertification/RealNameCertification.vue'),
+        },        
       ],      
     } 
   ],
