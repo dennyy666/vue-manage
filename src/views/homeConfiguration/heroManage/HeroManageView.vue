@@ -46,7 +46,7 @@
                 <el-input v-model="form.name" placeholder="请输入姓名" maxlength="4" clearable />
             </el-form-item>
             <el-form-item label="手机号" prop="mobile">
-                <el-input v-model="form.mobile" placeholder="请输入手机号" maxlength="11" clearable />
+                <el-input v-model="form.mobile" placeholder="请输入手机号" maxlength="11" v-number clearable />
             </el-form-item>
             <el-form-item label="角色" prop="role">
                 <el-select v-model="form.role" placeholder="请选择角色" clearable>
